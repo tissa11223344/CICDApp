@@ -57,8 +57,12 @@ jobs:
           plutil -replace CFBundleVersion -string "$(git rev-list --count HEAD)" CICDApp/Info.plist
           plutil -replace CFBundleShortVersionString -string "$(git describe --tags)" CICDApp/Info.plist
 
+#      - name: Build
+#        run: xcodebuild clean build -scheme CICDApp -workspace CICDApp.xcworkspace -configuration Release -sdk iphoneos
+        
       - name: Build
-        run: xcodebuild clean build -scheme CICDApp -workspace CICDApp.xcworkspace -configuration Release -sdk iphoneos
+        run: xcodebuild clean build -scheme CICDApp -workspace CICDApp.xcworkspace -configuration Release -sdk iphoneos -allowProvisioningUpdates
+
 
       - name: Archive
         run: xcodebuild archive -scheme CICDApp -workspace CICDApp.xcworkspace -configuration Release -sdk iphoneos -archivePath "build/CICDApp.xcarchive"
