@@ -2,8 +2,9 @@ name: Build and Distribute
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - .github/workflows/iOS_build.yml
+
 
 jobs:
   build:
