@@ -56,3 +56,10 @@ jobs:
         with:
           name: 'CICDApp'
           path: 'CICDApp.ipa'
+          
+      # Add a step to download the artifact
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: 'CICDApp'
+          path: 'artifacts'
