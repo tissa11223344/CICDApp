@@ -27,7 +27,7 @@
 #          
 
 
-name: Build and Distribute Application
+name: Build and Distribute App
 
 on:
   push:

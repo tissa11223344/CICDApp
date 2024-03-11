@@ -9,7 +9,7 @@
 	<key>uploadSymbols</key>
 	<true/>
 	<key>signingStyle</key>
-	<string>Automatic</string>
+	<string>Manual</string>
 	<key>signingCertificate</key>
 	<string>iPhone Development: Tissa Technology</string>
 </dict>
