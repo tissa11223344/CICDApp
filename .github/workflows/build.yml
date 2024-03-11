@@ -47,10 +47,15 @@ jobs:
           gem install cocoapods
           pod install
 
+#      - name: Set Build Version
+#        run: |
+#          plutil -replace CFBundleVersion -string "$(git rev-list --count HEAD)" Info.plist
+#          plutil -replace CFBundleShortVersionString -string "$(git describe --tags)" Info.plist
+          
       - name: Set Build Version
         run: |
-          plutil -replace CFBundleVersion -string "$(git rev-list --count HEAD)" Info.plist
-          plutil -replace CFBundleShortVersionString -string "$(git describe --tags)" Info.plist
+          plutil -replace CFBundleVersion -string "$(git rev-list --count HEAD)" CICDApp/Info.plist
+          plutil -replace CFBundleShortVersionString -string "$(git describe --tags)" CICDApp/Info.plist
 
       - name: Build
         run: xcodebuild clean build -scheme CICDApp -workspace CICDApp.xcworkspace -configuration Release -sdk iphoneos
