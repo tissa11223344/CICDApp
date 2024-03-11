@@ -31,7 +31,7 @@
 #          path: 'CICDApp.ipa'
 
 
-name: Build and Distribute
+name: Build and Distribute Application
 
 on:
   push:
