@@ -54,12 +54,12 @@ jobs:
       - name: Archive
         uses: actions-xcode/archive@v2
         with:
-          project-scheme: 'YourProjectScheme'
+          project-scheme: 'CICDApp'
           package: '.ipa'
           
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: 'YourProjectArchive'
-          path: 'YourProjectScheme.ipa'
+          name: 'CICDApp'
+          path: 'CICDApp.ipa'
 
