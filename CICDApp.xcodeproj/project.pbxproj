@@ -13,6 +13,7 @@
 		06E36FD52B9EDDDE0099EC0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06E36FD32B9EDDDE0099EC0F /* Main.storyboard */; };
 		06E36FD72B9EDDE10099EC0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06E36FD62B9EDDE10099EC0F /* Assets.xcassets */; };
 		06E36FDA2B9EDDE10099EC0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06E36FD82B9EDDE10099EC0F /* LaunchScreen.storyboard */; };
+		06E36FE22B9F04B70099EC0F /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06E36FE12B9F04B70099EC0F /* ExportOptions.plist */; };
 		0DA08E419F4C158D73C2048F /* Pods_CICDApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFDFEBA14DCDDEDAAAA7C6B2 /* Pods_CICDApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		06E36FD62B9EDDE10099EC0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06E36FD92B9EDDE10099EC0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06E36FDB2B9EDDE10099EC0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06E36FE12B9F04B70099EC0F /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 		C4E4DED6C3FE0C7D547E46CB /* Pods-CICDApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CICDApp.debug.xcconfig"; path = "Target Support Files/Pods-CICDApp/Pods-CICDApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DFDFEBA14DCDDEDAAAA7C6B2 /* Pods_CICDApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CICDApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E8FBA736091AF52601AD13 /* Pods-CICDApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CICDApp.release.xcconfig"; path = "Target Support Files/Pods-CICDApp/Pods-CICDApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				06E36FD62B9EDDE10099EC0F /* Assets.xcassets */,
 				06E36FD82B9EDDE10099EC0F /* LaunchScreen.storyboard */,
 				06E36FDB2B9EDDE10099EC0F /* Info.plist */,
+				06E36FE12B9F04B70099EC0F /* ExportOptions.plist */,
 			);
 			path = CICDApp;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				06E36FDA2B9EDDE10099EC0F /* LaunchScreen.storyboard in Resources */,
 				06E36FD72B9EDDE10099EC0F /* Assets.xcassets in Resources */,
 				06E36FD52B9EDDDE0099EC0F /* Main.storyboard in Resources */,
+				06E36FE22B9F04B70099EC0F /* ExportOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

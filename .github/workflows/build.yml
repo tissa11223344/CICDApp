@@ -1,9 +1,10 @@
-#name: Build and Distribute
+
+#name: Build and Distribute Application
 #
 #on:
 #  push:
-#    paths:
-#      - .github/workflows/ios.yml
+#    branches:
+#      - main
 #
 #jobs:
 #  build:
@@ -12,26 +13,21 @@
 #    steps:
 #      - name: Checkout code
 #        uses: actions/checkout@v2
-#      
+#        
 #      - name: Install CocoaPods
 #        run: |
 #          gem install cocoapods
 #          pod install
 #          
 #      - name: Archive
-#        uses: actions-xcode/archive@v2
-#        with:
-#          project-scheme: 'CICDApp'
-#          package: '.ipa'
-#          
-#      - name: Upload artifact
 #        uses: actions/upload-artifact@v2
 #        with:
 #          name: 'CICDApp'
 #          path: 'CICDApp.ipa'
+#          
 
 
-name: Build and Distribute Application
+name: Build and Distribute App
 
 on:
   push:
@@ -41,25 +37,42 @@ on:
 jobs:
   build:
     runs-on: macOS-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Install CocoaPods
         run: |
           gem install cocoapods
           pod install
-          
+
+      - name: Set Build Version
+        run: |
+          plutil -replace CFBundleVersion -string "$(git rev-list --count HEAD)" Info.plist
+          plutil -replace CFBundleShortVersionString -string "$(git describe --tags)" Info.plist
+
+      - name: Build
+        run: xcodebuild clean build -scheme CICDApp -workspace CICDApp.xcworkspace -configuration Release -sdk iphoneos
+
       - name: Archive
-        uses: actions/upload-artifact@v2
-        with:
-          name: 'CICDApp'
-          path: 'CICDApp.ipa'
-          
-      # Add a step to download the artifact
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: 'CICDApp'
-          path: 'artifacts'
+        run: xcodebuild archive -scheme CICDApp -workspace CICDApp.xcworkspace -configuration Release -sdk iphoneos -archivePath "build/CICDApp.xcarchive"
+
+      - name: Export IPA
+        run: xcodebuild -exportArchive -archivePath "build/CICDApp.xcarchive" -exportOptionsPlist ExportOptions.plist -exportPath "build"
+
+      - name: Generate Link
+        id: generate_link
+        run: echo "::set-output name=link::http://example.com/CICDApp.ipa"
+
+#      - name: Send Email
+#        uses: dawidd6/action-send-mail@v3
+#        with:
+#          server_address: smtp.yourserver.com
+#          server_port: 587
+#          username: ${{ secrets.EMAIL_USERNAME }}
+#          password: ${{ secrets.EMAIL_PASSWORD }}
+#          subject: "Your App IPA Link"
+#          body: "Download the latest version of Your App from the following link: ${{ steps.generate_link.outputs.link }}"
+#          to: "test@example.com"
+#          from: "your-email@example.com"
