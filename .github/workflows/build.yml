@@ -3,18 +3,13 @@ name: Build and Distribute
 on:
   push:
     paths:
-      - .github/workflows/iOS_build.yml
-
+      - .github/workflows/ios.yml
 
 jobs:
   build:
     runs-on: macOS-latest
     
     steps:
-    
-      - name: check Xcode version
-        run: /usr/bin/xcodebuild -version
-    
       - name: Checkout code
         uses: actions/checkout@v2
       
