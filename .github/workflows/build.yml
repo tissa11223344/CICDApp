@@ -10,18 +10,17 @@ jobs:
     runs-on: macOS-latest
     
     steps:
+    
+      - name: check Xcode version
+        run: /usr/bin/xcodebuild -version
+    
       - name: Checkout code
         uses: actions/checkout@v2
-        
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-          
-      - name: Set up Xcode
-        uses: actions/setup-xcode@v2
-        with:
-          xcode-version: '13.x'
+      
+      - name: Install CocoaPods
+        run: |
+          gem install cocoapods
+          pod install
           
       - name: Archive
         uses: actions-xcode/archive@v2
