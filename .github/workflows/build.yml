@@ -1,0 +1,36 @@
+name: Build and Distribute
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          
+      - name: Set up Xcode
+        uses: actions/setup-xcode@v2
+        with:
+          xcode-version: '13.x'
+          
+      - name: Archive
+        uses: actions-xcode/archive@v2
+        with:
+          project-scheme: 'CICDApp'
+          package: '.ipa'
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: 'CICDApp'
+          path: 'CICDApp.ipa'
